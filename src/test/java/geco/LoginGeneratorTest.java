@@ -3,7 +3,7 @@ package geco;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 
 public class LoginGeneratorTest {
     private LoginService loginService;
@@ -22,12 +22,17 @@ public class LoginGeneratorTest {
 
     @Test
     public void generateLoginForNomAndPrenomTest(){
+        //CT1
         g.generateLoginForNomAndPrenom("Durand","Paul");
-        loginService.loginExists("PDUR");
-    }
-
-    @Test
-    public void deAccent(){
-
+        assertTrue(loginService.loginExists("PDUR"));
+        //CT2
+        g.generateLoginForNomAndPrenom("Ralling","John");
+        assertTrue(loginService.loginExists("JRAL2"));
+        //CT3
+        g.generateLoginForNomAndPrenom("Rolling","Jean");
+        assertTrue(loginService.loginExists("JROL1"));
+        //CT4
+        g.generateLoginForNomAndPrenom("Dùrand","Paul");
+        assertTrue(loginService.loginExists("PDUR"));
     }
 }
