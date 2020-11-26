@@ -13,8 +13,7 @@ public class LoginServiceTest {
     @Test
     public void LoginServiceConstructorTest() {
         String[] s = {"1","2","3"};
-        new LoginService(s);
-        assertNotNull(s);
+        assertNotNull(new LoginService(s));
     }
 
     @Test
