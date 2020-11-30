@@ -34,5 +34,8 @@ public class LoginGeneratorTest {
         //CT4
         g.generateLoginForNomAndPrenom("Dùrand","Paul");
         assertTrue(loginService.loginExists("PDUR"));
+
+        g.generateLoginForNomAndPrenom("Du","Paul");
+        assertTrue(loginService.loginExists("PDU"));
     }
 }
